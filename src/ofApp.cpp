@@ -11,6 +11,8 @@ void ofApp::setup(){
 
    // videoFront.play();
    // videoBack.play();
+    ofSetVerticalSync(false);  
+    
     trees.load("bubbles.jpg");
     
     group.setName("FazerParticles");
@@ -129,10 +131,10 @@ void ofApp::setup(){
         
     }
     
-    for(int i = 0; i< 20; i++){
+    for(int i = 0; i< 25; i++){
         burstingBubbles b = *new burstingBubbles;
         busting.push_back(b);
-        busting.back().setup(ofPoint(ofRandom(100,RES_W-100),ofRandom(100,RES_H-100)), 400, "animals/1.mov", "animals/2.mov", &attractPoints);
+        busting.back().setup(ofPoint(i*(RES_W/25),800), 400, "animals/1.mov", "animals/2.mov", &attractPoints);
       
     }
 

@@ -24,9 +24,8 @@ public:
     ofVideoPlayer flower1;
     ofVideoPlayer flower2;
     
-    int f1NumFrames;
-    int width, height;
-    bool play1, play2;
+    int w,h;
+    
     vector<ofPoint>* attractPoints;
     
     void setup(ofPoint _pos, int _r, string file1, string file2, vector <ofPoint> * _disturbPoints){
@@ -34,56 +33,38 @@ public:
         flower2.load(file2);
         flower2.setLoopState(OF_LOOP_NONE);
         flower1.setLoopState(OF_LOOP_NORMAL);
-        flower1.play();
-        f1NumFrames=flower1.getTotalNumFrames();
         pos = _pos;
-        width = flower1.getWidth();
-        height = flower1.getHeight();
-       // r = _r;
-       // orgR = _r;
+        r = _r;
+        orgR = _r;
+        w=flower1.getWidth();
+        h=flower2.getHeight();
         touched = false;
-        play1 = true;
-
         attractPoints = _disturbPoints;
     }
     
     void update(){
-       // r = orgR + sin (ofGetFrameNum()/10)*10;
+        //r = orgR + sin (ofGetFrameNum()/10)*10;
         if(!touched){
             for(int i = 0; i< attractPoints->size();i++){
-                if(abs((pos.x+width/2)-attractPoints->at(i).x)<20){
+                if(abs(pos.x-attractPoints->at(i).x) < 20){
                     touched = true;
-                    //flower1.setLoopState(OF_LOOP_NONE);
                     flower2.play();
-                    flower1.stop();
-                    //cout<< dist(pos,attractPoints->at(i)) <<endl;
+                   // cout<< dist(pos,attractPoints->at(i)) <<endl;
                 }
             }
-        }
-//        if(touched && !flower1.isPlaying()){
-//            flower2.play();
-//            play1 = false;
-//        }
-//        if(touched && flower1.isPlaying()){
-//            flower1.update();
-//        }
-        if(touched){
-            flower2.update();
         }
         
         if(!touched){
             flower1.update();
         }
-
+        else if(touched){
+            flower2.update();
+        }
         
 
         if(touched && !flower2.isPlaying()){
             touched = false;
-            flower2.stop();
-            //flower1.setLoopState(OF_LOOP_NORMAL);
-            flower1.play();
-           // play1 = true;
-            //pos = ofPoint(ofRandom(100,RES_W-100),ofRandom(100,RES_H-100));
+         //   pos = ofPoint(ofRandom(100,RES_W-100),ofRandom(100,RES_H-100));
         }
         
 
@@ -91,15 +72,8 @@ public:
     
     void draw(){
         ofSetColor(255);
-        if(!touched){
-            ofSetColor(255,0,0);
-            flower1.draw(pos.x,pos.y-height,width,height);
-        
-        }
-        else if(touched){
-            ofSetColor(255,255,0);
-            flower2.draw(pos.x,pos.y-height,width,height);
-        }
+        if(!touched)flower1.draw(pos.x-(w)/2,pos.y-h,w,h);
+        else if(touched)flower2.draw(pos.x-(w)/2,pos.y-h,w,h);
 
     }
     
