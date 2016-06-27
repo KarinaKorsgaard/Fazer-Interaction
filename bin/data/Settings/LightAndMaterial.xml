@@ -1,0 +1,11 @@
+<Light_And_Material>
+	<Global_Ambient>253, 0, 85, 255</Global_Ambient>
+	<Light_1_Diffuse>96, 255, 115, 255</Light_1_Diffuse>
+	<Light_1_Ambient>255, 218, 255, 255</Light_1_Ambient>
+	<Light_1_Specular>255, 255, 255, 255</Light_1_Specular>
+	<Material_Ambient>80, 11, 61, 255</Material_Ambient>
+	<Material_Specular>58, 58, 63, 255</Material_Specular>
+	<Material_Emmissive>0, 0, 0, 255</Material_Emmissive>
+	<Material_Shininess>74.295</Material_Shininess>
+<Light_And_Material/>
+</Light_And_Material>

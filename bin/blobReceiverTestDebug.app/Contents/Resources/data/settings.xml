@@ -1,0 +1,43 @@
+<FazerParticles>
+	<offsetControl>
+		<numAttraction>1</numAttraction>
+		<one>
+			<offSet1X>113.869</offSet1X>
+			<offSet1Y>-119.534</offSet1Y>
+			<scale1>1.62432</scale1>
+		</one>
+		<two>
+			<offSet2X>0</offSet2X>
+			<offSet2Y>0</offSet2Y>
+			<scale2>0</scale2>
+			<overLap1>0</overLap1>
+		</two>
+		<three>
+			<offSet3X>0</offSet3X>
+			<offSet3Y>0</offSet3Y>
+			<scale3>0</scale3>
+			<overLap2>0</overLap2>
+		</three>
+		<four>
+			<offSet4X>0</offSet4X>
+			<offSet4Y>0</offSet4Y>
+			<scale4>0</scale4>
+			<overLap3>0</overLap3>
+		</four>
+	</offsetControl>
+	<visuals>
+		<swarm>0</swarm>
+		<clusters>0</clusters>
+		<perlin>0</perlin>
+		<bBox2d>1</bBox2d>
+		<b2bBounce>0.5</b2bBounce>
+		<drawVideoLoops>0</drawVideoLoops>
+	</visuals>
+	<group>
+		<background>0, 0, 0, 255</background>
+		<swarm>255, 255, 255, 255</swarm>
+		<cluster_color>61, 123, 255, 255</cluster_color>
+	<swarmnBox2dColor>255, 255, 255, 255</swarmnBox2dColor>
+	</group>
+<FazerParticles/>
+</FazerParticles>
