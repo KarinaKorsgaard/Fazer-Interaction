@@ -12,7 +12,7 @@ void ofApp::setup(){
    // videoFront.play();
    // videoBack.play();
     ofSetVerticalSync(false);  
-    
+    ofSetFrameRate(30);
     trees.load("bubbles.jpg");
     
     group.setName("FazerParticles");
