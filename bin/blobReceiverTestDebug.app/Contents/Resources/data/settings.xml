@@ -29,9 +29,9 @@
 		<swarm>0</swarm>
 		<clusters>0</clusters>
 		<perlin>0</perlin>
-		<bBox2d>1</bBox2d>
+		<bBox2d>0</bBox2d>
 		<b2bBounce>0.5</b2bBounce>
-		<drawVideoLoops>0</drawVideoLoops>
+		<drawVideoLoops>1</drawVideoLoops>
 	</visuals>
 	<group>
 		<background>0, 0, 0, 255</background>

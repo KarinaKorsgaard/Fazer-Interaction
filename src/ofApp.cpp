@@ -50,6 +50,7 @@ void ofApp::setup(){
     visualControl.add(swarm.set("swarm", true));
     visualControl.add(cluster.set("clusters", true));
     visualControl.add(perlin.set("perlin", false));
+    visualControl.add(bUserParticles.set("bUserParticles", false));
    
     visualControl.add(bBox2d.set("bBox2d", true));
     visualControl.add(b2bBounce.set("b2bBounce",0.5,0,3));
@@ -128,7 +129,7 @@ void ofApp::setup(){
         
     }
     
-    for(int i = 0; i< 1; i++){
+    for(int i = 0; i< 20; i++){
         burstingBubbles b = *new burstingBubbles;
         busting.push_back(b);
         busting.back().setup(ofPoint(ofRandom(100,RES_W-100),ofRandom(100,RES_H-100)), 400, "animals/1.mov", "animals/2.mov", &attractPoints);
@@ -187,7 +188,6 @@ void ofApp::setup(){
     
     int texSize = 100;
     spawnParticles.init( texSize ); // number of particles is (texSize * texSize)
-
     time = 0.0f;
     timeStep = 1.0f / 60.0f;
     
@@ -307,7 +307,6 @@ void ofApp::update(){
         line.close(); // close the shape
         
         blobs[0][0]=line;
-        cout <<line.size()<<endl;
     }
     
     
@@ -332,52 +331,54 @@ void ofApp::update(){
                 }
             }
         }
+
     // add mouse interaction on debug
     if(bDebug)attractPoints.push_back(ofPoint((RES_W/ofGetWidth() ) * mouseX, (RES_W/ofGetWidth())*mouseY));
-
-    time += timeStep;
-    
-    spawnPositions.clear();
-    for(int i = 0; i<blobs.size();i++){
-        for(int u = 0; u<blobs[i].size();u++){
-            ofPolyline poly = blobs[i][u].getResampledByCount(50);
-            
-            
-            for( int p = 0; p < poly.getVertices().size(); p++) {
-                ofVec3f spawnPos;
-                spawnPos.x = ofMap( poly.getVertices()[p].x + ofRandom(-5,5), 0, RES_W, -1.,1. );
-                spawnPos.y = ofMap( poly.getVertices()[p].y + ofRandom(-5,5), 0, RES_H,  -1., 1.);
-                spawnPos.z = ofMap( poly.getVertices()[p].x, 0, RES_W, -0.2, 0.2 );
+    if(bUserParticles){
+        time += timeStep;
+        
+        spawnPositions.clear();
+        for(int i = 0; i<blobs.size();i++){
+            for(int u = 0; u<blobs[i].size();u++){
+                ofPolyline poly = blobs[i][u].getResampledByCount(50);
                 
-                spawnPositions.push_back( spawnPos );
+                
+                for( int p = 0; p < poly.getVertices().size(); p++) {
+                    ofVec3f spawnPos;
+                    spawnPos.x = ofMap( poly.getVertices()[p].x + ofRandom(-5,5), 0, RES_W, -1.,1. );
+                    spawnPos.y = ofMap( poly.getVertices()[p].y + ofRandom(-5,5), 0, RES_H,  -1., 1.);
+                    spawnPos.z = ofMap( poly.getVertices()[p].x, 0, RES_W, -0.2, 0.2 );
+                    
+                    spawnPositions.push_back( spawnPos );
+                }
+                
             }
-            
         }
-    }
-
-    int tmpIndex = 0;
-    if(spawnPositions.size()>0){
-        for( int y = 0; y < spawnParticles.textureSize; y++ )
-        {
-            for( int x = 0; x < spawnParticles.textureSize; x++ )
+        
+        int tmpIndex = 0;
+        if(spawnPositions.size()>0){
+            for( int y = 0; y < spawnParticles.textureSize; y++ )
             {
-                ofVec3f spawnPos;
-                
-                spawnPos = spawnPositions.at( (int)ofRandom(spawnPositions.size()-1) );
-                
-                spawnParticles.spawnPosBuffer.getPixels()[ (tmpIndex * 3) + 0 ] = spawnPos.x;
-                spawnParticles.spawnPosBuffer.getPixels()[ (tmpIndex * 3) + 1 ] = spawnPos.y;
-                spawnParticles.spawnPosBuffer.getPixels()[ (tmpIndex * 3) + 2 ] = spawnPos.z;
-                
-                tmpIndex++;
+                for( int x = 0; x < spawnParticles.textureSize; x++ )
+                {
+                    ofVec3f spawnPos;
+                    
+                    spawnPos = spawnPositions.at( (int)ofRandom(spawnPositions.size()-1) );
+                    
+                    spawnParticles.spawnPosBuffer.getPixels()[ (tmpIndex * 3) + 0 ] = spawnPos.x;
+                    spawnParticles.spawnPosBuffer.getPixels()[ (tmpIndex * 3) + 1 ] = spawnPos.y;
+                    spawnParticles.spawnPosBuffer.getPixels()[ (tmpIndex * 3) + 2 ] = spawnPos.z;
+                    
+                    tmpIndex++;
+                }
             }
+            
+            spawnParticles.spawnPosTexture.loadData( spawnParticles.spawnPosBuffer );
+            
         }
-        
-        spawnParticles.spawnPosTexture.loadData( spawnParticles.spawnPosBuffer );
+        spawnParticles.update(time,timeStep);
         
     }
-    spawnParticles.update(time,timeStep);
-    
     
     if(drawAnimals)for(int i = 0 ; i< busting.size();i++)busting[i].update();
     
@@ -591,8 +592,8 @@ void ofApp::update(){
     }
  
     
-    spawnParticles.draw();
-    //for(auto u:users)u.draw();
+    if(bUserParticles)spawnParticles.draw();
+ 
     if(bDebug){
         ofSetColor(255,255,0);
         ofDrawCircle( attractPoints.back() ,10);
