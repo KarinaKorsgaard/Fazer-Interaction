@@ -1,0 +1,44 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "683C0E2AE1911178C8EDA836A210DE957CAD0038",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "903165F9FDCB952EAE50578862E56DA722F43224" : 0,
+    "683C0E2AE1911178C8EDA836A210DE957CAD0038" : 0,
+    "37526DA425E5430474A14FBFA1BC4525160B5FC1" : 0,
+    "3FD0A6B0728805B39B1EC65C31D9BA97C2D2ABC7" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "72261092-9A4E-4666-B568-0739F5C95184",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "903165F9FDCB952EAE50578862E56DA722F43224" : "..\/..\/addons\/ofxBox2d",
+    "683C0E2AE1911178C8EDA836A210DE957CAD0038" : "fazerForest\/",
+    "37526DA425E5430474A14FBFA1BC4525160B5FC1" : "..\/..\/addons\/ofxCv",
+    "3FD0A6B0728805B39B1EC65C31D9BA97C2D2ABC7" : "..\/..\/addons\/ofxBiquadFilter"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "blobReceiverTest",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "blobReceiverTest.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/kylemcdonald\/ofxCv.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "37526DA425E5430474A14FBFA1BC4525160B5FC1"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/dzlonline\/ofxBiquadFilter.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "3FD0A6B0728805B39B1EC65C31D9BA97C2D2ABC7"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/KarinaKorsgaard\/Fazer-Interaction.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "683C0E2AE1911178C8EDA836A210DE957CAD0038"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/vanderlin\/ofxBox2d.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "903165F9FDCB952EAE50578862E56DA722F43224"
+    }
+  ]
+}

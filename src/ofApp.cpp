@@ -307,6 +307,7 @@ void ofApp::update(){
         line.close(); // close the shape
         
         blobs[0][0]=line;
+        cout <<line.size()<<endl;
     }
     
     
@@ -393,9 +394,11 @@ void ofApp::update(){
                 for(int u = 0; u<blobs[i].size();u++){
 
                     ofPolyline drawing = blobs[i][u];
-                    if(drawing.size()>3 /*&& drawing.getCentroid2D().x>b2dRegion*/){
+                    if(drawing.size()>2 && drawing.getBoundingBox().getArea()>15){
                         
                         drawing.setClosed(true);
+                        drawing = drawing.getResampledByCount(60);
+                        
                         // save the outline of the shape
                         
                         shared_ptr<ofxBox2dPolygon> poly = shared_ptr<ofxBox2dPolygon>(new ofxBox2dPolygon);

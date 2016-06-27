@@ -9,19 +9,19 @@
 		<two>
 			<offSet2X>0</offSet2X>
 			<offSet2Y>0</offSet2Y>
-			<scale2>0</scale2>
+			<scale2>1.59309</scale2>
 			<overLap1>0</overLap1>
 		</two>
 		<three>
 			<offSet3X>0</offSet3X>
 			<offSet3Y>0</offSet3Y>
-			<scale3>0</scale3>
+			<scale3>1.48376</scale3>
 			<overLap2>0</overLap2>
 		</three>
 		<four>
 			<offSet4X>0</offSet4X>
 			<offSet4Y>0</offSet4Y>
-			<scale4>0</scale4>
+			<scale4>1.46814</scale4>
 			<overLap3>0</overLap3>
 		</four>
 	</offsetControl>
